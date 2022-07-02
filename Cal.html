@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input autofocus type="number" value="0">
+    <select>
+        <option selected value="plus">+</option>
+        <option selected value="minus">-</option>
+        <option selected value="multiply">*</option>
+        <option selected value="divide">/</option>
+        <option selected value="remain">%</option>
+    </select>
+    <input type="number" value="0">
+    <input type="button" value="계산">
+
+    <span>
+        <span>결과 :</span>
+        <span>0</span>
+    </span>
+    <script>
+
+        let buttonElement = document.body.querySelector(':scope > input:nth-of-type(3)');
+        buttonElement.addEventListener('click', () => {
+            const firstNumber = parseInt(document.body.querySelector(':scope > input').value);
+            const secondNumber = parseInt(document.body.querySelector(':scope > input:nth-of-type(2)').value);
+            const select = document.body.querySelector(':scope > select').value;
+            const resultText = document.body.querySelector(':scope > span > span:nth-of-type(2)');
+            let result = 0;
+            if (select == 'plus'){
+                result = firstNumber + secondNumber;
+            } else if (select == 'minus'){
+                result = firstNumber - secondNumber;
+            } else if (select == 'multiply'){
+                result = firstNumber * secondNumber;
+            } else if (select == 'divide'){
+                result = firstNumber / secondNumber;
+            } else if (select == 'remain'){
+                result = firstNumber % secondNumber;
+            }
+            resultText.innerText = result;
+        });
+    </script>
+</body>
+</html>
