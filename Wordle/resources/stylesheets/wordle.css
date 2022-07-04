@@ -1,0 +1,119 @@
+body{
+    background-color: rgb(240,245,255);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+}
+
+body > .start-button{
+    top: 50%;
+    left: 50%;
+    background-color: rgb(50, 150, 250);
+    border-radius: 0.5rem;
+    box-shadow: 0 0 0.75rem 0.0625rem rgba(0,0,0,33%);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    /* letter-spacing: 자간 */
+    padding: 1rem 1.5rem;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    /* 1rem = 16px */
+    opacity: 0;
+    pointer-events: none;
+}
+
+body > .start-button.visible{
+    opacity: 1;
+    pointer-events: all;
+}
+
+body > .start-button:hover{
+    filter: brightness(105%);
+}
+
+body > .start-button:active{
+    filter: brightness(95%);
+}
+
+body > .ground{
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    padding: 2rem 0;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+}
+
+body > .ground.visible{
+    opacity: 1;
+    pointer-events: all;
+}
+
+body > .ground > .top{
+    flex: 1;
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-grow : 1; flex-shrink:  flex-basis */
+}
+
+body > .ground > .top > .number-container{
+    top: 50%;
+    left: 50%;
+    display: grid;
+    gap: 0.5rem;
+    grid-template-columns: repeat(5, 1fr);
+    transform: translate(-50% -50%);
+}
+
+body > .ground > .top > .number-container > .number{
+    width: calc((100vh - 20rem) / 6);
+    height: calc((100vh - 20rem) / 6);
+    background-color: rgb(255,255,255);
+    border: 0.125rem solid rgb(210,215,225);
+}
+
+body > .ground > .bottom {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+body > .ground > .bottom > .key-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+body > .ground > .bottom > .key-container > .row{
+    display: grid;
+    gap: 0.25rem;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr;
+}
+
+body > .ground > .bottom > .key-container > .row + .row {
+    margin-top: 0.25rem;
+}
+
+body > .ground > .bottom > .key-container > .row > .key{
+    background-color: rgb(220,225,235);
+    border-radius: 0.5rem;
+    padding: 1.25rem 1rem;
+    cursor: pointer;
+    user-select: none;
+}
